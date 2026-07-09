@@ -1,0 +1,33 @@
+:root {
+  --color-primary: #B76E79;
+  --color-secondary: #E7C8C0;
+  --color-accent: #D4A373;
+
+  --color-background: #FFFDF9;
+  --color-surface: #FFFFFF;
+  --color-surfaceAlt: #F8F4F2;
+
+  --color-text: #2B2B2B;
+  --color-textMuted: #6B7280;
+
+  --color-border: #E5E7EB;
+
+  --font-heading: "Prata", serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
