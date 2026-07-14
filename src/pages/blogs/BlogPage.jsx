@@ -1,4 +1,3 @@
-import React from 'react';
 import { blogsData } from '../../data/blogs';
 import BlogCard from '../../components/ui/BlogCard';
 

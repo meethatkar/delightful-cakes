@@ -2,13 +2,13 @@ import { navigation } from "@/config/navigation"
 import { Link } from "react-router-dom"
 
 const DesktopNav = () => {
-  
+
   return (
     <div className="flex items-center gap-4 text-md uppercase">
       {navigation.map((link) => (
         <Link
           key={link.id}
-          to={`/${link.path}`}
+          to={`${link.path}`}
           className="relative block overflow-hidden group"
         >
           <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">

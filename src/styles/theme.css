@@ -16,6 +16,21 @@
   --font-body: "Manrope", sans-serif;
 }
 
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surfaceAlt: var(--color-surfaceAlt);
+  --color-text: var(--color-text);
+  --color-textMuted: var(--color-textMuted);
+  --color-border: var(--color-border);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-text);
@@ -30,4 +45,5 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
 

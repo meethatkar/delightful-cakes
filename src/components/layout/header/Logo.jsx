@@ -7,7 +7,7 @@ export default function Logo() {
       to="/"
       className="font-heading"
     >
-      <img src={siteConfig.business.logo} alt=""className="w-36" />
+      <img src={siteConfig.business.logo} alt="" className="w-36" />
     </Link>
   );
 }
