@@ -17,7 +17,7 @@ const HeroCard = ({ item, position }) => {
   const borderClass = position === "center" ? "border-secondary/30" : "border-white"
 
   return (
-    <div className={`absolute top-1/2 left-1/2 -translate-y-1/2 w-[210px] sm:w-[300px] md:w-[450px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-all duration-300 ${borderClass} ${positionClasses[position]}`}>
+    <div className={`absolute top-1/2 left-1/2 -translate-y-1/2 w-[210px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-all duration-300 ${borderClass} ${positionClasses[position]}`}>
       <img
         src={item.imgSrc}
         alt={item.title}
@@ -35,34 +35,24 @@ const Hero = () => {
   const rightItem = heroData[3]
 
   return (
-    <Section className="relative h-screen w-full overflow-hidden">
+    <Section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center">
       {/* Background Image Layer at 50% opacity */}
       <div
         className="absolute inset-0 bg-cover bg-center z-[-1] bg-no-repeat opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      <Container className="relative z-20 h-full flex flex-col items-center justify-center gap-[2rem] pt-[3%]">
-
-        {/* Section Header */}
-        {/* <div className="text-center mb-8 md:mb-12">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-2 block">
-            Crafted with Love & Quality
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">
-            Our Sweet Masterpieces
-          </h2>
-        </div> */}
+      <Container className="relative z-20 flex flex-col items-center gap-[1.5rem]">
 
         {/* Carousel Visuals Wrapper */}
-        <div className="relative w-full h-[285px] sm:h-[415px] md:h-[615px] flex items-center justify-center select-none">
+        <div className="relative w-full h-[285px] sm:h-[380px] md:h-[490px] lg:h-[570px] flex items-center justify-center select-none">
           <HeroCard item={leftItem} position="left" />
           <HeroCard item={centerItem} position="center" />
           <HeroCard item={rightItem} position="right" />
         </div>
 
         {/* Slide Details */}
-        <div className="w-full max-w-lg flex flex-col items-center mt-[5%]">
+        <div className="w-full max-w-lg flex flex-col items-center">
           <div className="text-center min-h-[110px] flex flex-col items-center justify-start">
             <h3 className="text-2xl md:text-5xl whitespace-nowrap font-semibold text-text mb-2 px-4">
               {centerItem.title}
