@@ -1,6 +1,8 @@
 import { heroData } from "./data"
 import heroBg from "../../../assets/images/hero/hero_bg.webp"
 import Button from "@/components/ui/Button"
+import Section from "@/components/ui/Section"
+import Container from "@/components/ui/Container"
 
 /**
  * Reusable card component for the Hero section carousel
@@ -33,14 +35,14 @@ const Hero = () => {
   const rightItem = heroData[3]
 
   return (
-    <section className="relative h-screen w-full py-12 md:py-16 overflow-hidden">
+    <Section className="relative h-screen w-full overflow-hidden">
       {/* Background Image Layer at 50% opacity */}
       <div
         className="absolute inset-0 bg-cover bg-center z-[-1] bg-no-repeat opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      <div className="relative z-20 max-w-[1280px] w-full h-full px-4 mx-auto flex flex-col items-center justify-center gap-[2rem] pt-[2%]">
+      <Container className="relative z-20 h-full flex flex-col items-center justify-center gap-[2rem] pt-[3%]">
 
         {/* Section Header */}
         {/* <div className="text-center mb-8 md:mb-12">
@@ -53,14 +55,14 @@ const Hero = () => {
         </div> */}
 
         {/* Carousel Visuals Wrapper */}
-        <div className="relative w-full max-w-4xl h-[285px] sm:h-[415px] md:h-[615px] flex items-center justify-center select-none">
+        <div className="relative w-full h-[285px] sm:h-[415px] md:h-[615px] flex items-center justify-center select-none">
           <HeroCard item={leftItem} position="left" />
           <HeroCard item={centerItem} position="center" />
           <HeroCard item={rightItem} position="right" />
         </div>
 
         {/* Slide Details */}
-        <div className="w-full max-w-lg flex flex-col items-center">
+        <div className="w-full max-w-lg flex flex-col items-center mt-[5%]">
           <div className="text-center min-h-[110px] flex flex-col items-center justify-start">
             <h3 className="text-2xl md:text-5xl whitespace-nowrap font-semibold text-text mb-2 px-4">
               {centerItem.title}
@@ -75,8 +77,8 @@ const Hero = () => {
           </div>
         </div>
 
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }
 
