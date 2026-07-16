@@ -1,6 +1,12 @@
+import Button from "@/components/ui/Button"
+
 const HeaderActions = () => {
   return (
-    <div>HeaderActions</div>
+    <div>
+      <Button variant="secondary">
+        Contact Us
+      </Button>
+    </div>
   )
 }
 
