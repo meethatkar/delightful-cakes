@@ -3,7 +3,7 @@
   --color-secondary: #E7C8C0;
   --color-accent: #D4A373;
 
-  --color-background: #FFFDF9;
+  --color-background: #FFFDFA;
   --color-surface: #FFFFFF;
   --color-surfaceAlt: #F8F4F2;
 
@@ -45,5 +45,3 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
-
-

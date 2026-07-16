@@ -1,8 +1,7 @@
 import { cn } from '@/utils';
 import { useId } from 'react'
 
-const Input = ({
-  type,
+const TextArea = ({
   label,
   placeholder,
   className,
@@ -12,6 +11,7 @@ const Input = ({
   disabled,
   error,
   helperText,
+  rows = 5,
   ...props
 }) => {
   const inputID = useId();
@@ -23,16 +23,16 @@ const Input = ({
           {required && <span className='text-red-500'>*</span>}
         </label>
       )}
-      <input
-        className={cn("w-full rounded-xl border border-border bg-surface px-4 py-3 text-text outline-none transition-all duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-60", className, error && "border-error")}
+      <textarea
+        className={cn("w-full rounded-xl border border-border bg-surface px-4 py-3 text-text outline-none transition-all duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-60 min-h-32 resize-none", className, error && "border-error")}
         {...props}
-        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         required={required}
         disabled={disabled}
         id={inputID}
+        rows={rows}
       />
       {
         helperText && (<p className='text-textMuted text-sm'> {helperText} </p>)
@@ -44,4 +44,4 @@ const Input = ({
   )
 }
 
-export default Input
+export default TextArea

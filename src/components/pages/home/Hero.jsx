@@ -41,6 +41,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center z-[-1] bg-no-repeat opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
+      <div className="wrapper-gradient bg-linear-to-b from-transparent from-90% to-white absolute inset-0 pointer-events-none z-1"></div>
 
       <Container className="relative z-20 flex flex-col items-center gap-[1.5rem]">
 
