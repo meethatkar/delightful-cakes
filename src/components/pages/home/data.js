@@ -17,6 +17,7 @@ export const heroData = [
     imgSrc: "https://images.unsplash.com/photo-1622621746668-59fb299bc4d7?q=80&w=933&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     hoveredDesc: "Classic red velvet sponge layered with fresh strawberries and cream."
   },
+
   {
     id: 4,
     title: "Baked choco pie",

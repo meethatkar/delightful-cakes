@@ -601,4 +601,73 @@ export const productCatalog = [
     rating: 5.0,
     available: true,
   },
+
+  {
+    id: 30,
+    displayOrder: 31,
+    slug: "chocolate-truffle-cake",
+    title: "Chocolate Truffle Cake",
+    description:
+      "Rich chocolate sponge layered with silky truffle ganache and dark chocolate curls.",
+    image: "/images/products/big-cakes/chocolate-cake-3.webp",
+    category: "birthday",
+    imageType: "cake",
+    layout: "single",
+    tags: ["hero", "featured", "bestseller"],
+    badges: [
+      {
+        label: "Best Seller",
+        variant: "primary",
+      },
+    ],
+    price: null,
+    rating: 5.0,
+    available: true,
+  },
+
+  {
+    id: 31,
+    displayOrder: 32,
+    slug: "strawberry-red-velvet-cake",
+    title: "Strawberry Red Velvet Cake",
+    description:
+      "Classic red velvet sponge layered with fresh strawberries and whipped cream.",
+    image: "/images/products/big-cakes/strawberry-velvet-cake.webp",
+    category: "birthday",
+    imageType: "cake",
+    layout: "single",
+    tags: ["hero", "featured", "bestseller"],
+    badges: [
+      {
+        label: "Best Seller",
+        variant: "primary",
+      },
+    ],
+    price: null,
+    rating: 5.0,
+    available: true,
+  },
+
+  {
+    id: 32,
+    displayOrder: 34,
+    slug: "pastery",
+    title: "Vanilla Pastery",
+    description:
+      "Soft matcha sponge layered with silky white chocolate buttercream.",
+    image: "/images/products/special-cakes/bakery-items/pastery.webp",
+    category: "special",
+    imageType: "cake",
+    layout: "single",
+    tags: ["hero", "featured", "premium"],
+    badges: [
+      {
+        label: "Premium",
+        variant: "primary",
+      },
+    ],
+    price: null,
+    rating: 4.9,
+    available: true,
+  }
 ];
