@@ -30,3 +30,22 @@ export const heroData = [
     hoveredDesc: "Light matcha sponge with smooth, velvety white chocolate buttercream."
   }
 ]
+
+export const featuredProducts = [
+  {
+    id: 1,
+    title: "Strawberry Red Velvet Dream",
+    slug: "strawberry-red-velvet-dream",
+    image: "https://images.unsplash.com/photo-1622621746668-59fb299bc4d7?q=80&w=933&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Red Velvet",
+    badge: "Best Seller",
+  },
+  {
+    id: 2,
+    title: "Chocolate Truffle",
+    slug: "chocolate-truffle",
+    image: "...",
+    category: "Chocolate",
+    badge: "New",
+  },
+];
