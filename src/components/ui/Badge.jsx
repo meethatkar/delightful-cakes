@@ -1,9 +1,9 @@
-import { Sparkles, Heart, Tag } from "lucide-react";
+import { RiHeart2Fill, RiPriceTag2Fill, RiSparklingLine } from "@remixicon/react";
 
 const iconMap = {
-  sparkles: Sparkles,
-  heart: Heart,
-  sale: Tag,
+  sparkles: RiSparklingLine,
+  heart: RiHeart2Fill,
+  sale: RiPriceTag2Fill,
 };
 
 const Badge = ({
@@ -16,6 +16,8 @@ const Badge = ({
 }) => {
   const variantStyles = {
     primary: "bg-primary/12 text-primary border-primary/25",
+    secondary: "bg-secondary/12 text-secondary border-secondary/25",
+    accent: "bg-accent/12 text-accent border-accent/25",
   };
 
   const sizeStyles = {

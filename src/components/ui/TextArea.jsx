@@ -20,7 +20,7 @@ const TextArea = ({
       {label && (
         <label htmlFor={inputID} className='text-sm font-medium text-text'>
           {label}
-          {required && <span className='text-red-500'>*</span>}
+          {required && <span className='text-error'>*</span>}
         </label>
       )}
       <textarea
@@ -38,7 +38,7 @@ const TextArea = ({
         helperText && (<p className='text-textMuted text-sm'> {helperText} </p>)
       }
       {
-        error && (<p className='text-sm text-red-400'> {error} </p>)
+        error && (<p className='text-sm text-error'> {error} </p>)
       }
     </div>
   )

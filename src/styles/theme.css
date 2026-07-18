@@ -12,6 +12,11 @@
 
   --color-border: #E5E7EB;
 
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
   --font-heading: "Prata", serif;
   --font-body: "Manrope", sans-serif;
 }
@@ -26,6 +31,10 @@
   --color-text: var(--color-text);
   --color-textMuted: var(--color-textMuted);
   --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-overlay: var(--color-overlay);
 
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);

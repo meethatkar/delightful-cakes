@@ -306,7 +306,7 @@ export const productCatalog = [
     category: "birthday",
     imageType: "cake",
     layout: "single",
-    tags: ["featured", "bestseller"],
+    tags: ["featured"],
     badges: [
       {
         label: "Popular",
@@ -609,7 +609,7 @@ export const productCatalog = [
     title: "Chocolate Truffle Cake",
     description:
       "Rich chocolate sponge layered with silky truffle ganache and dark chocolate curls.",
-    image: "/images/products/big-cakes/chocolate-cake-3.webp",
+    image: "/products/big-cakes/chocolate-cake-3.webp",
     category: "birthday",
     imageType: "cake",
     layout: "single",
@@ -632,7 +632,7 @@ export const productCatalog = [
     title: "Strawberry Red Velvet Cake",
     description:
       "Classic red velvet sponge layered with fresh strawberries and whipped cream.",
-    image: "/images/products/big-cakes/strawberry-velvet-cake.webp",
+    image: "/products/big-cakes/strawberry-velvet-cake.webp",
     category: "birthday",
     imageType: "cake",
     layout: "single",
@@ -655,7 +655,7 @@ export const productCatalog = [
     title: "Vanilla Pastery",
     description:
       "Soft matcha sponge layered with silky white chocolate buttercream.",
-    image: "/images/products/special-cakes/bakery-items/pastery.webp",
+    image: "/products/bakery-items/pastery.webp",
     category: "special",
     imageType: "cake",
     layout: "single",

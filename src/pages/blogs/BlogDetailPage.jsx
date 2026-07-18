@@ -13,9 +13,9 @@ const BlogDetailPage = () => {
 
   if (!blog) {
     return (
-      <div className="w-full min-h-[70vh] flex flex-col items-center justify-center bg-white px-4">
-        <h1 className="text-3xl font-bold text-stone-900 mb-4">Blog not found</h1>
-        <Link to="/blogs" className="px-6 py-2.5 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-medium transition-colors">
+      <div className="w-full min-h-[70vh] flex flex-col items-center justify-center bg-background px-4">
+        <h1 className="text-3xl font-bold text-text mb-4">Blog not found</h1>
+        <Link to="/blogs" className="px-6 py-2.5 rounded-full bg-primary hover:bg-accent text-white font-medium transition-colors">
           Back to Blogs
         </Link>
       </div>
@@ -26,7 +26,7 @@ const BlogDetailPage = () => {
     <Section>
       <Container>
 
-        <Link to="/blogs" className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium mb-8 transition-colors">
+        <Link to="/blogs" className="inline-flex items-center text-primary hover:text-accent font-medium mb-8 transition-colors">
           ← Back to all blogs
         </Link>
 
@@ -44,17 +44,17 @@ const BlogDetailPage = () => {
 
             {/* Blog Header Info */}
             <div className="flex flex-col space-y-4 mb-8">
-              <span className="text-sm text-stone-500 font-medium">{blog.date}</span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-stone-800">{blog.title}</h1>
+              <span className="text-sm text-textMuted font-medium">{blog.date}</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-text">{blog.title}</h1>
             </div>
 
             {/* Blog Content */}
             <div className="prose prose-stone prose-lg max-w-none">
-              <p className="text-xl text-stone-600 mb-8 leading-relaxed">
+              <p className="text-xl text-textMuted mb-8 leading-relaxed">
                 {blog.description}
               </p>
 
-              <div className="text-stone-700 leading-loose whitespace-pre-line">
+              <div className="text-text leading-loose whitespace-pre-line">
                 {blog.content}
               </div>
             </div>
@@ -62,7 +62,7 @@ const BlogDetailPage = () => {
 
           {/* Sidebar - Right Side */}
           <div className="col-span-1 lg:col-span-4">
-            <h3 className="text-2xl font-bold text-stone-900 mb-8 border-b border-stone-100 pb-4">Recent Posts</h3>
+            <h3 className="text-2xl font-bold text-text mb-8 border-b border-border pb-4">Recent Posts</h3>
             <div className="flex flex-col gap-6">
               {otherBlogs.map((otherBlog) => (
                 <BlogCard

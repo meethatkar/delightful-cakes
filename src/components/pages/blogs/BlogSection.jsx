@@ -11,11 +11,11 @@ const BlogSection = ({ title = "Recipe Blogs", className = "", ...props }) => {
 
   return (
     <Section className={className} {...props}>
-      <Container className="bg-stone-50/50 rounded-[2rem] py-16 px-6 sm:px-8 lg:px-12">
+      <Container className="bg-surfaceAlt/50 rounded-[2rem] py-16 px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-semibold text-stone-800 tracking-tight">{title}</h2>
-          <Link to="/blogs" className="px-6 py-2.5 rounded-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium transition-colors">
+          <h2 className="text-3xl font-semibold text-text tracking-tight">{title}</h2>
+          <Link to="/blogs" className="px-6 py-2.5 rounded-full bg-primary hover:bg-accent text-white text-sm font-medium transition-colors">
             View more
           </Link>
         </div>

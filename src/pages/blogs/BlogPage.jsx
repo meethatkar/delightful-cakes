@@ -5,12 +5,12 @@ import Container from '@/components/ui/Container';
 
 const BlogPage = () => {
   return (
-    <div className="w-full min-h-screen bg-[#FAFAFA] pb-24">
+    <div className="w-full min-h-screen bg-background pb-24">
       {/* Page Header */}
-      <Section className="bg-white shadow-sm mb-12">
+      <Section className="bg-surface shadow-sm mb-12">
         <Container className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">Our Recipe Blogs</h1>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-text mb-4">Our Recipe Blogs</h1>
+          <p className="text-lg text-textMuted max-w-2xl mx-auto">
             Discover our latest recipes, cooking tips, and culinary adventures to inspire your next meal.
           </p>
         </Container>

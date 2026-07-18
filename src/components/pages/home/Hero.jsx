@@ -10,7 +10,7 @@ import Container from "@/components/ui/Container"
 const HeroCard = ({ item, position }) => {
   const positionClasses = {
     left: "-translate-x-[115%] shadow-[0_15px_35px_rgba(0,0,0,0.08)] rotate-[-3deg] scale-[0.85] opacity-65 z-10",
-    center: "-translate-x-1/2 shadow-[0_25px_60px_rgba(183,110,121,0.22)] scale-[1.05] z-20",
+    center: "-translate-x-1/2 shadow-[0_25px_60px_color-mix(in_srgb,_var(--color-primary)_22%,_transparent)] scale-[1.05] z-20",
     right: "translate-x-[15%] shadow-[0_15px_35px_rgba(0,0,0,0.08)] rotate-[3deg] scale-[0.85] opacity-65 z-10",
   }
 
@@ -41,7 +41,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center z-[-1] bg-no-repeat opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="wrapper-gradient bg-linear-to-b from-transparent from-90% to-white absolute inset-0 pointer-events-none z-1"></div>
+      <div className="wrapper-gradient bg-linear-to-b from-transparent from-90% to-background absolute inset-0 pointer-events-none z-1"></div>
 
       <Container className="relative z-20 flex flex-col items-center gap-[1.5rem]">
 
