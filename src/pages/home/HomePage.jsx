@@ -3,6 +3,7 @@ import Hero from "@/components/pages/home/Hero";
 import Whyus from "@/components/pages/home/Whyus";
 import FeaturedCategories from "@/components/pages/home/FeaturedCategories";
 import Reviews from "@/components/pages/home/Reviews";
+import CTA from "@/components/common/CTA";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Whyus />
       <FeaturedCategories />
       <Reviews />
+      <CTA />
     </div>
   );
 }
