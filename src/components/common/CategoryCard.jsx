@@ -1,4 +1,4 @@
-import Badge from "./Badge";
+import Badge from "../ui/Badge";
 import "../pages/home/home.css"
 
 const CategoryCard = ({

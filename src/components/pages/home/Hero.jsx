@@ -1,8 +1,8 @@
-import { heroData } from "./data"
 import heroBg from "../../../assets/images/hero/hero_bg.webp"
 import Button from "@/components/ui/Button"
 import Section from "@/components/ui/Section"
 import Container from "@/components/ui/Container"
+import { heroData } from "@/data/data"
 
 /**
  * Reusable card component for the Hero section carousel

@@ -1,5 +1,5 @@
+import ProductCard from '@/components/common/ProductCard'
 import Container from '@/components/ui/Container'
-import ProductCard from '@/components/ui/ProductCard'
 import Section from '@/components/ui/Section'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { getBestSellers } from '@/utils/productSelector'

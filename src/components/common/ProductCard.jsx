@@ -1,5 +1,5 @@
 import { RiStarFill } from "@remixicon/react";
-import Badge from "./Badge";
+import Badge from "../ui/Badge";
 
 const ProductCard = ({
   image,
