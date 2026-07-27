@@ -19,6 +19,7 @@
 
   --font-heading: "Prata", serif;
   --font-body: "Manrope", sans-serif;
+  --font-cta: "Bebas Neue", sans-serif;
 }
 
 @theme {
@@ -38,6 +39,7 @@
 
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+  --font-cta: var(--font-cta);
 }
 
 body {
