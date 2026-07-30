@@ -16,7 +16,8 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className={`flex flex-col bg-white p-5 rounded-[2.5rem] border border-border/30 hover:border-secondary/20 shadow-xs hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-all duration-500 group cursor-pointer ${className}`}
+      data-stagger
+      className={`flex flex-col bg-white p-5 rounded-[2.5rem] border border-border/30 hover:border-secondary/20 shadow-xs hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500 group cursor-pointer ${className}`}
       {...props}
     >
       {/* Image Container with subtle background */}
