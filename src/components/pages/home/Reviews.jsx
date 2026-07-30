@@ -3,6 +3,7 @@ import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { CustomerReviews } from '@/data/reviews'
 import ReviewCards from './ReviewCards';
+import ArrowLine from '@/components/ui/ArrowLine';
 
 const Reviews = () => {
   const data = CustomerReviews;
@@ -10,8 +11,9 @@ const Reviews = () => {
     <Container>
       <Section>
         <SectionHeader description="Discover why dessert lovers choose our cakes for their most special moments." title="Baked with Love, Reviewed with Joy" />
-        <div className="relative w-full">
-          <div 
+        <ArrowLine />
+        <div className="relative w-full mt-[1%]">
+          <div
             className="pointer-events-none absolute inset-0 z-10"
             style={{ background: 'linear-gradient(to right, var(--color-background) 0%, transparent 10%, transparent 90%, var(--color-background) 100%)' }}
           />
@@ -21,6 +23,7 @@ const Reviews = () => {
             ))}
           </div>
         </div>
+        <ArrowLine />
       </Section>
     </Container>
   )
