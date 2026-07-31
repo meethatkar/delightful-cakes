@@ -2,8 +2,9 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { gsap } from "../config/gsap";
 import { Observer } from "gsap/Observer";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(Observer);
+gsap.registerPlugin(Observer, ScrollTrigger);
 
 const useMarquee = ({
   speed = 50,
@@ -51,7 +52,16 @@ const useMarquee = ({
       gsap.set(track, { x });
     };
 
-    gsap.ticker.add(update);
+    // Optimize performance by only running the ticker when the marquee is in view
+    const st = ScrollTrigger.create({
+      trigger: container,
+      start: "top bottom",
+      end: "bottom top",
+      onEnter: () => gsap.ticker.add(update),
+      onLeave: () => gsap.ticker.remove(update),
+      onEnterBack: () => gsap.ticker.add(update),
+      onLeaveBack: () => gsap.ticker.remove(update),
+    });
 
     // Agency-level interactions using Observer
     const observer = Observer.create({
@@ -85,6 +95,7 @@ const useMarquee = ({
     return () => {
       gsap.ticker.remove(update);
       observer.kill();
+      st.kill();
       container.removeEventListener("mouseenter", handleMouseEnter);
       container.removeEventListener("mouseleave", handleMouseLeave);
     };
