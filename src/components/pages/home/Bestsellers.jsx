@@ -10,7 +10,7 @@ const Bestsellers = () => {
   const bestsellers = getBestSellers();
   const staggerRef = useRef(null);
   const revealRef = useRef(null);
-  useStagger(staggerRef, { staggerFrom: "random" });
+  useStagger(staggerRef, { staggerFrom: "center" });
   useReveal(revealRef)
 
   return (

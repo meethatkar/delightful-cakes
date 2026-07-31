@@ -36,7 +36,7 @@ const Whyus = () => {
   const headerRef = useRef(null);
   const staggerRef = useRef(null);
   useReveal(headerRef);
-  useStagger(staggerRef, { staggerFrom: "random" })
+  useStagger(staggerRef, { staggerFrom: "center" })
 
   return (
     <Section className="bg-surfaceAlt/10">

@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "../config/gsap";
 import { Observer } from "gsap/Observer";
 
@@ -10,6 +10,7 @@ const useMarquee = ({
   direction = -1,
 } = {}) => {
   const containerRef = useRef(null);
+  const [activeDirection, setActiveDirection] = useState(direction);
 
   useGSAP(() => {
     const container = containerRef.current;
@@ -58,11 +59,18 @@ const useMarquee = ({
       type: "wheel,touch,pointer",
       onWheel: (e) => {
         const nextDirection = e.deltaY > 0 ? -1 : 1;
-        currentDirection = nextDirection;
+        if (currentDirection !== nextDirection) {
+          currentDirection = nextDirection;
+          setActiveDirection(nextDirection);
+        }
         targetVelocity = currentDirection * baseVelocity;
       },
       onDrag: (e) => {
-        currentDirection = e.deltaX > 0 ? 1 : -1;
+        const nextDirection = e.deltaX > 0 ? 1 : -1;
+        if (currentDirection !== nextDirection) {
+          currentDirection = nextDirection;
+          setActiveDirection(nextDirection);
+        }
         targetVelocity = currentDirection * baseVelocity;
       }
     });
@@ -82,7 +90,7 @@ const useMarquee = ({
     };
   }, []);
 
-  return containerRef;
+  return { containerRef, activeDirection };
 };
 
 export default useMarquee;

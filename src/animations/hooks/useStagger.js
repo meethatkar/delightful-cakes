@@ -44,7 +44,7 @@ const useStagger = (
         end,
         once,
         scrub,
-        markers: true,
+        // markers: true,
       }
     });
   }, { scope: continerRef });

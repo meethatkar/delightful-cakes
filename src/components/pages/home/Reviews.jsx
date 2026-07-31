@@ -8,8 +8,8 @@ import { useMarquee } from '@/animations';
 
 const Reviews = () => {
   const data = CustomerReviews;
-  const marqueeRef = useMarquee({
-    speed: 15,
+  const { containerRef: marqueeRef, activeDirection } = useMarquee({
+    speed: 10,
     direction: -1,
   });
 
@@ -17,7 +17,7 @@ const Reviews = () => {
     <Container>
       <Section>
         <SectionHeader description="Discover why dessert lovers choose our cakes for their most special moments." title="Baked with Love, Reviewed with Joy" />
-        <ArrowLine />
+        <ArrowLine direction={activeDirection} />
         <div ref={marqueeRef} className="relative w-full mt-[1%] overflow-hidden">
           <div
             className="pointer-events-none absolute inset-0 z-10"
@@ -29,7 +29,7 @@ const Reviews = () => {
             ))}
           </div>
         </div>
-        <ArrowLine />
+        <ArrowLine direction={activeDirection} />
       </Section>
     </Container>
   )
