@@ -13,7 +13,7 @@ const ReviewCards = ({ imgSrc, name, role, reviewedOn, stars, comment }) => {
   }
 
   return (
-    <div className="bg-surface rounded-xl border border-border w-full min-w-[320px] max-w-sm flex flex-col gap-4 p-5 shadow-sm snap-start">
+    <div className="bg-surface shrink-0 rounded-xl border border-border w-[320px] flex flex-col gap-4 p-5 shadow-sm snap-start">
       <div className="header w-full flex items-center justify-between">
         <div className="h-left flex items-center gap-3">
           <img className="w-11 h-11 rounded-full object-cover" src={imgSrc} alt={name || "Reviewer"} />
