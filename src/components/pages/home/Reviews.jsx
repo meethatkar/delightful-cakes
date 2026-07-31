@@ -9,7 +9,7 @@ import { useMarquee } from '@/animations';
 const Reviews = () => {
   const data = CustomerReviews;
   const { containerRef: marqueeRef, activeDirection } = useMarquee({
-    speed: 10,
+    speed: 25,
     direction: -1,
   });
 

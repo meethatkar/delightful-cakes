@@ -6,7 +6,7 @@ import { Observer } from "gsap/Observer";
 gsap.registerPlugin(Observer);
 
 const useMarquee = ({
-  speed = 25,
+  speed = 50,
   direction = -1,
 } = {}) => {
   const containerRef = useRef(null);
@@ -27,7 +27,7 @@ const useMarquee = ({
 
     // Convert duration speed to pixels-per-frame velocity (assuming ~60fps)
     const baseVelocity = singleSetWidth / (speed * 60);
-    
+
     let currentDirection = direction;
     let targetVelocity = baseVelocity * currentDirection;
     let currentVelocity = targetVelocity;
@@ -38,7 +38,7 @@ const useMarquee = ({
       // Smooth easing (momentum) towards target velocity
       const target = isHovered ? 0 : targetVelocity;
       currentVelocity += (target - currentVelocity) * 0.1;
-      
+
       x += currentVelocity;
 
       // Infinite wrapping logic
