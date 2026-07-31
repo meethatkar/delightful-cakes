@@ -1,32 +1,12 @@
 .bento-wrapper {
+  position: relative;
+  min-height: 800px;
   width: 100%;
-  display: grid;
-  min-height: 700px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-areas: "LT . RT"
-    "LT CC RT"
-    "LB CC RB"
-    "LB . RB";
-  gap: 20px;
 }
 
-#left-top {
-  grid-area: LT;
-}
-
-#left-bottom {
-  grid-area: LB;
-}
-
-#center-center {
-  grid-area: CC;
-}
-
-#right-top {
-  grid-area: RT;
-}
-
-#right-bottom {
-  grid-area: RB;
+[data-spread-item] {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

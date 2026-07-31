@@ -1,7 +1,9 @@
+import { useRef } from "react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryCard from "@/components/common/CategoryCard";
+import { useFeaturedCategoriesSpread } from "@/animations";
 import "./home.css";
 
 const categoriesData = [
@@ -48,9 +50,13 @@ const categoriesData = [
 ];
 
 const FeaturedCategories = () => {
+  const sectionRef = useRef(null);
+
+  useFeaturedCategoriesSpread(sectionRef);
+
   return (
     <Section className="bg-background py-16">
-      <Container>
+      <Container ref={sectionRef}>
         <SectionHeader
           subtitle="Explore Categories"
           title="Featured Categories"

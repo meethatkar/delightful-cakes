@@ -15,6 +15,8 @@ const CategoryCard = ({
   return (
     <div
       id={id}
+      data-spread-item
+      data-position={id}
       className={`relative w-full max-w-[280px] aspect-4/5 mx-auto flex flex-col justify-end p-4 group cursor-pointer ${className}`}
       {...props}
     >
