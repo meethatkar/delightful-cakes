@@ -1,23 +1,26 @@
+import { useState, useEffect, useRef } from "react"
 import heroBg from "../../../assets/images/hero/hero_bg.webp"
 import Button from "@/components/ui/Button"
 import Section from "@/components/ui/Section"
 import Container from "@/components/ui/Container"
 import { heroData } from "@/data/data"
+import { useCarousel } from "@/animations"
 
 /**
  * Reusable card component for the Hero section carousel
  */
-const HeroCard = ({ item, position }) => {
-  const positionClasses = {
-    left: "-translate-x-[115%] shadow-[0_15px_35px_rgba(0,0,0,0.08)] rotate-[-3deg] scale-[0.85] opacity-65 z-10",
-    center: "-translate-x-1/2 shadow-[0_25px_60px_color-mix(in_srgb,_var(--color-primary)_22%,_transparent)] scale-[1.05] z-20",
-    right: "translate-x-[15%] shadow-[0_15px_35px_rgba(0,0,0,0.08)] rotate-[3deg] scale-[0.85] opacity-65 z-10",
-  }
-
+const HeroCard = ({ item, position, onClick }) => {
   const borderClass = position === "center" ? "border-secondary/30" : "border-white"
+  const pointerClass = position !== "center" ? "cursor-pointer" : ""
 
   return (
-    <div className={`absolute top-1/2 left-1/2 -translate-y-1/2 w-[210px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-all duration-300 ${borderClass} ${positionClasses[position]}`}>
+    <div 
+      onClick={position !== "center" ? onClick : undefined}
+      data-position={position}
+      // GSAP handles x/y transforms, scale, rotation, opacity, and box-shadow
+      // CSS only handles border-color transitions now
+      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[210px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-colors duration-300 ${borderClass} ${pointerClass}`}
+    >
       <img
         src={item.imgSrc}
         alt={item.title}
@@ -29,10 +32,34 @@ const HeroCard = ({ item, position }) => {
 }
 
 const Hero = () => {
-  // Statically rendering index 1 (left), index 2 (center), and index 3 (right)
-  const leftItem = heroData[1]
-  const centerItem = heroData[2]
-  const rightItem = heroData[3]
+  const [activeIndex, setActiveIndex] = useState(2);
+  const timerRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  const leftIndex = (activeIndex - 1 + heroData.length) % heroData.length;
+  const rightIndex = (activeIndex + 1) % heroData.length;
+
+  const centerItem = heroData[activeIndex];
+
+  const startAutoplay = () => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % heroData.length);
+    }, 5000);
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  const handleCardClick = (newIndex) => {
+    setActiveIndex(newIndex);
+    startAutoplay(); // Reset timer on manual click
+  };
+
+  // Wire up GSAP animation hook
+  useCarousel(carouselRef, activeIndex);
 
   return (
     <Section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center">
@@ -46,10 +73,22 @@ const Hero = () => {
       <Container className="relative z-20 flex flex-col items-center gap-[1.5rem]">
 
         {/* Carousel Visuals Wrapper */}
-        <div className="relative w-full h-[285px] sm:h-[380px] md:h-[490px] lg:h-[570px] flex items-center justify-center select-none">
-          <HeroCard item={leftItem} position="left" />
-          <HeroCard item={centerItem} position="center" />
-          <HeroCard item={rightItem} position="right" />
+        <div ref={carouselRef} className="relative w-full h-[285px] sm:h-[380px] md:h-[490px] lg:h-[570px] flex items-center justify-center select-none">
+          {heroData.map((item, index) => {
+            let position = "hidden";
+            if (index === leftIndex) position = "left";
+            else if (index === activeIndex) position = "center";
+            else if (index === rightIndex) position = "right";
+
+            return (
+              <HeroCard 
+                key={item.id} 
+                item={item} 
+                position={position} 
+                onClick={() => handleCardClick(index)}
+              />
+            )
+          })}
         </div>
 
         {/* Slide Details */}
