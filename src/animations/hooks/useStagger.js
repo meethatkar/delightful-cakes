@@ -15,7 +15,9 @@ const useStagger = (
     start = "top 90%",
     end = "bottom 70%",
     once = false,
-    scrub = 1
+    scrub = 1,
+    useScrollTrigger = true,
+    dependencies = []
   } = {}
 ) => {
   useGSAP(() => {
@@ -27,7 +29,7 @@ const useStagger = (
 
     if (!elements.length) return;
 
-    gsap.from(elements, {
+    const animConfig = {
       y,
       x,
       opacity,
@@ -38,16 +40,20 @@ const useStagger = (
       },
       delay,
       ease,
-      scrollTrigger: {
+    };
+
+    if (useScrollTrigger) {
+      animConfig.scrollTrigger = {
         trigger: continerRef.current,
         start,
         end,
         once,
         scrub,
-        // markers: true,
-      }
-    });
-  }, { scope: continerRef });
+      };
+    }
+
+    gsap.from(elements, animConfig);
+  }, { scope: continerRef, dependencies: [selector, y, x, opacity, duration, each, staggerFrom, delay, ease, start, end, once, scrub, useScrollTrigger, ...dependencies] });
 }
 
 export default useStagger

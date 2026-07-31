@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button"
 import Section from "@/components/ui/Section"
 import Container from "@/components/ui/Container"
 import { heroData } from "@/data/data"
-import { gsap, ScrollTrigger, useCarousel, useGSAP } from "@/animations"
+import { gsap, ScrollTrigger, useCarousel, useGSAP, useStagger } from "@/animations"
 
 /**
  * Reusable card component for the Hero section carousel
@@ -35,6 +35,7 @@ const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(2);
   const timerTweenRef = useRef(null);
   const carouselRef = useRef(null);
+  const staggerRef = useRef(null);
 
   const leftIndex = (activeIndex - 1 + heroData.length) % heroData.length;
   const rightIndex = (activeIndex + 1) % heroData.length;
@@ -52,6 +53,14 @@ const Hero = () => {
     startAutoplay();
     return () => timerTweenRef.current?.kill();
   }, [activeIndex]);
+
+
+  useStagger(staggerRef, {
+    useScrollTrigger: false,
+    dependencies: [activeIndex],
+    y: 30, // smaller offset for the hero text
+    duration: 0.6,
+  });
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -105,12 +114,14 @@ const Hero = () => {
         {/* Slide Details */}
         <div className="w-full max-w-lg flex flex-col items-center">
           <div className="text-center min-h-[110px] flex flex-col items-center justify-start">
-            <h3 className="text-2xl md:text-5xl whitespace-nowrap font-semibold text-text mb-2 px-4">
-              {centerItem.title}
-            </h3>
-            <p className="text-textMuted text-base md:text-base max-w-sm px-6 leading-relaxed mb-6">
-              {centerItem.hoveredDesc}
-            </p>
+            <div ref={staggerRef}>
+              <h3 data-stagger className="text-2xl md:text-5xl whitespace-nowrap font-semibold text-text mb-2 px-4">
+                {centerItem.title}
+              </h3>
+              <p data-stagger className="text-textMuted text-base md:text-base max-w-sm px-6 leading-relaxed mb-6 mx-auto">
+                {centerItem.hoveredDesc}
+              </p>
+            </div>
             <div className="flex items-center justify-center gap-[4rem] w-full">
               <Button variant="primary"> Order now </Button>
               <Button variant="secondary"> View Menu </Button>
