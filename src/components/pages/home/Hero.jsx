@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button"
 import Section from "@/components/ui/Section"
 import Container from "@/components/ui/Container"
 import { heroData } from "@/data/data"
-import { useCarousel } from "@/animations"
+import { gsap, ScrollTrigger, useCarousel, useGSAP } from "@/animations"
 
 /**
  * Reusable card component for the Hero section carousel
@@ -14,7 +14,7 @@ const HeroCard = ({ item, position, onClick }) => {
   const pointerClass = position !== "center" ? "cursor-pointer" : ""
 
   return (
-    <div 
+    <div
       onClick={position !== "center" ? onClick : undefined}
       data-position={position}
       // GSAP handles x/y transforms, scale, rotation, opacity, and box-shadow
@@ -33,7 +33,7 @@ const HeroCard = ({ item, position, onClick }) => {
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(2);
-  const timerRef = useRef(null);
+  const timerTweenRef = useRef(null);
   const carouselRef = useRef(null);
 
   const leftIndex = (activeIndex - 1 + heroData.length) % heroData.length;
@@ -42,20 +42,31 @@ const Hero = () => {
   const centerItem = heroData[activeIndex];
 
   const startAutoplay = () => {
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
+    if (timerTweenRef.current) timerTweenRef.current.kill();
+    timerTweenRef.current = gsap.delayedCall(5, () => {
       setActiveIndex((prev) => (prev + 1) % heroData.length);
-    }, 5000);
+    });
   };
 
   useEffect(() => {
     startAutoplay();
-    return () => clearInterval(timerRef.current);
-  }, []);
+    return () => timerTweenRef.current?.kill();
+  }, [activeIndex]);
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: carouselRef.current,
+      start: "top bottom",
+      end: "bottom top",
+      onLeave: () => timerTweenRef.current?.pause(),
+      onLeaveBack: () => timerTweenRef.current?.pause(),
+      onEnter: () => timerTweenRef.current?.resume(),
+      onEnterBack: () => timerTweenRef.current?.resume(),
+    });
+  }, { scope: carouselRef });
 
   const handleCardClick = (newIndex) => {
     setActiveIndex(newIndex);
-    startAutoplay(); // Reset timer on manual click
   };
 
   // Wire up GSAP animation hook
@@ -81,10 +92,10 @@ const Hero = () => {
             else if (index === rightIndex) position = "right";
 
             return (
-              <HeroCard 
-                key={item.id} 
-                item={item} 
-                position={position} 
+              <HeroCard
+                key={item.id}
+                item={item}
+                position={position}
                 onClick={() => handleCardClick(index)}
               />
             )
