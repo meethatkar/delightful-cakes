@@ -10,3 +10,4 @@ export { default as useSpread } from "./hooks/useSpread";
 export { default as useMarquee } from "./hooks/useMarquee";
 export { default as useFade } from "./hooks/useFade";
 export { default as useFeaturedCategoriesSpread } from "./hooks/useFeaturedCategoriesSpread";
+export { default as useTextReveal } from "./hooks/useTextReveal";

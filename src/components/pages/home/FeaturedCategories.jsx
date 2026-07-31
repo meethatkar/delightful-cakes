@@ -3,7 +3,7 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryCard from "@/components/common/CategoryCard";
-import { useFeaturedCategoriesSpread } from "@/animations";
+import { useFeaturedCategoriesSpread, useReveal } from "@/animations";
 import "./home.css";
 
 const categoriesData = [
@@ -51,13 +51,16 @@ const categoriesData = [
 
 const FeaturedCategories = () => {
   const sectionRef = useRef(null);
+  const revealRef = useRef(null);
 
   useFeaturedCategoriesSpread(sectionRef);
+  useReveal(revealRef)
 
   return (
     <Section className="bg-background py-16">
       <Container ref={sectionRef}>
         <SectionHeader
+          ref={revealRef}
           subtitle="Explore Categories"
           title="Featured Categories"
           description="Delve into our curated selections of handcrafted baked goods, custom designed for every celebration."
