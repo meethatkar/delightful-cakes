@@ -47,8 +47,14 @@ const useStagger = (
         trigger: continerRef.current,
         start,
         end,
-        once,
         scrub,
+        once: !scrub && once,
+        onLeave: (self) => {
+          if (scrub && once) {
+            self.animation?.progress(1);
+            self.kill(false);
+          }
+        }
       };
     }
 

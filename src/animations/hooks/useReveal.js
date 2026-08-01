@@ -30,7 +30,13 @@ const useReveal = (
             trigger: ref.current,
             start: "top 85%",
             scrub,
-            once,
+            once: !scrub && once,
+            onLeave: (self) => {
+              if (scrub && once) {
+                self.animation?.progress(1);
+                self.kill(false);
+              }
+            }
           }
         }
       )
