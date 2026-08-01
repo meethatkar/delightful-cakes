@@ -19,7 +19,7 @@ const HeroCard = ({ item, position, onClick }) => {
       data-position={position}
       // GSAP handles x/y transforms, scale, rotation, opacity, and box-shadow
       // CSS only handles border-color transitions now
-      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[210px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-colors duration-300 ${borderClass} ${pointerClass}`}
+      className={`absolute top-1/2 left-1/2 w-[160px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-colors duration-300 ${borderClass} ${pointerClass}`}
     >
       <img
         src={item.imgSrc}

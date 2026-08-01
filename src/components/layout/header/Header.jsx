@@ -13,7 +13,7 @@ export default function Header() {
   }));
 
   return (
-    <header className="absolute top-0 left-0 z-[100] w-full">
+    <header className="absolute top-0 left-0 z-[100] w-full overflow-hidden">
       <div className="md:hidden absolute top-0 left-0 w-full h-20">
         <StaggeredMenu
           isFixed={false}
