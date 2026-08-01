@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button"
 
 const HeaderActions = () => {
   return (
-    <div>
+    <div className="hidden md:block">
       <Button variant="secondary">
         Contact Us
       </Button>

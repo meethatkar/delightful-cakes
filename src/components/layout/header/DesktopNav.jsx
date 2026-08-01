@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const DesktopNav = () => {
 
   return (
-    <div className="flex items-center gap-4 text-md uppercase">
+    <div className="hidden md:flex items-center gap-4 text-md uppercase">
       {navigation.map((link) => (
         <Link
           key={link.id}
