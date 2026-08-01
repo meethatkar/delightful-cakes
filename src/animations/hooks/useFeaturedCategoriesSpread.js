@@ -29,7 +29,6 @@ const useFeaturedCategoriesSpread = (sectionRef) => {
         end: "bottom 70%",
         scrub: 1,
         once: true,
-        markers: true,
       },
     });
 

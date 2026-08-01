@@ -8,6 +8,8 @@ const useReveal = (
     duration = 0.8,
     ease = "power3.out",
     delay = 0,
+    scrub = false,
+    once = true,
   } = {}
 ) => {
   useLayoutEffect(() => {
@@ -27,13 +29,15 @@ const useReveal = (
           scrollTrigger: {
             trigger: ref.current,
             start: "top 85%",
+            scrub,
+            once,
           }
         }
       )
     }, ref);
 
     return () => ctx.revert();
-  }, [y, opacity, duration, ease, delay, ref])
+  }, [y, opacity, duration, ease, delay, scrub, once, ref])
 }
 
 export default useReveal
