@@ -25,11 +25,11 @@ const useFeaturedCategoriesSpread = (sectionRef) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: "top 10%",
-        end: "+=1000",
+        start: "top 25%",
+        end: "bottom 70%",
         scrub: 1,
-        pin: true,
-        // markers: true
+        once: true,
+        markers: true,
       },
     });
 

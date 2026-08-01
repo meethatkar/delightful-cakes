@@ -13,25 +13,27 @@ const useReveal = (
   useLayoutEffect(() => {
     if (!ref.current) return;
 
-    gsap.fromTo(
-      ref.current,
-      {
-        y,
-        opacity,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration,
-        ease,
-        delay,
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
+    const ctx = gsap.context(() => {
+      gsap.set(ref.current, { y, opacity });
+
+      gsap.to(
+        ref.current,
+        {
+          y: 0,
+          opacity: 1,
+          duration,
+          ease,
+          delay,
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 85%",
+          }
         }
-      }
-    )
-  }, [])
+      )
+    }, ref);
+
+    return () => ctx.revert();
+  }, [y, opacity, duration, ease, delay, ref])
 }
 
 export default useReveal
