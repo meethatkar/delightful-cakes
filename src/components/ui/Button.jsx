@@ -23,7 +23,7 @@ const Button = ({
     <button
       onClick={onClick}
       className={cn(
-        "relative overflow-hidden rounded-full font-medium border border-transparent transition-all duration-500 active:scale-95 group cursor-pointer",
+        "relative overflow-hidden rounded-full font-medium border border-transparent transition-all duration-700 active:scale-95 group cursor-pointer",
         variantStyles[variant] ?? variantStyles.primary,
         className
       )}
@@ -31,7 +31,7 @@ const Button = ({
     >
       {/* Background slide effect (slides up from bottom) */}
       <span
-        className="absolute -bottom-full left-0 w-full h-full rounded-[50%] transition-all duration-300 ease-in-out group-hover:bottom-0 group-hover:rounded-none pointer-events-none z-0 group-hover:bg-accent"
+        className="absolute -bottom-full left-0 w-full h-full rounded-[100%] transition-all duration-500 ease-in-out group-hover:bottom-0 group-hover:rounded-none pointer-events-none z-0 group-hover:bg-accent"
       ></span>
 
       {/* Button Text */}

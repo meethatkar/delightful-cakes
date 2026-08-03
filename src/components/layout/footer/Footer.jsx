@@ -118,6 +118,16 @@ const Footer = () => {
             Made with <RiHeart2Fill className="w-3.5 h-3.5 fill-primary text-primary inline animate-pulse" /> for cake lovers.
           </p>
         </div>
+
+        {/* Developer Credit */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 bg-text/95 text-white px-5 py-4 rounded-2xl shadow-lg border border-text/10">
+          <p className="text-[11px] text-white/80 leading-relaxed text-center sm:text-left">
+            Developed by <span className="font-semibold text-white">Meet Hatkar</span>, <span className="font-semibold text-white">motionGrid Digital</span> web agency
+          </p>
+          <a href="https://wa.me/918355959889?text=Hi%20Meet!%20I%20loved%20your%20work%20on%20the%20Delightful%20Cakes%20website." target="_blank" rel="noreferrer" className="text-[10px] font-bold tracking-wider uppercase text-text bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors whitespace-nowrap shadow-sm">
+            Contact Developer
+          </a>
+        </div>
       </Container>
     </footer>
   );
