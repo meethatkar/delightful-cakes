@@ -271,7 +271,7 @@ export const StaggeredMenu = ({
 
   return (
     <div
-      className={`sm-scope z-40 ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden' : 'w-full h-full'}`}
+      className={`sm-scope z-40 ${isFixed || open ? 'fixed top-0 left-0 w-screen h-screen' : 'absolute top-0 left-0 w-full h-full'}`}
     >
       <div
         className={
@@ -283,7 +283,7 @@ export const StaggeredMenu = ({
       >
         <div
           ref={preLayersRef}
-          className="sm-prelayers absolute top-0 right-0 bottom-0 pointer-events-none z-[5]"
+          className="sm-prelayers fixed top-0 right-0 bottom-0 pointer-events-none z-[5] w-screen h-screen"
           aria-hidden="true"
         >
           {(() => {
@@ -336,7 +336,7 @@ export const StaggeredMenu = ({
         <aside
           id="staggered-menu-panel"
           ref={panelRef}
-          className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
+          className="staggered-menu-panel fixed top-0 right-0 h-screen w-full sm:w-[400px] bg-white flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
           style={{ WebkitBackdropFilter: 'blur(12px)' }}
           aria-hidden={!open}
         >
