@@ -17,7 +17,7 @@ const Bestsellers = () => {
     <Section>
       <Container>
         <SectionHeader ref={revealRef} title="Bestsellers" description="The One that you can't miss to taste" />
-        <div ref={staggerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-10">
+        <div ref={staggerRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 w-full mt-10 px-2 sm:px-0">
           {bestsellers.map((product) => (
             <ProductCard
               key={product.id}

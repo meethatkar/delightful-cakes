@@ -17,11 +17,11 @@ const ProductCard = ({
   return (
     <div
       data-stagger
-      className={`flex flex-col bg-white p-5 rounded-[2.5rem] border border-border/30 hover:border-secondary/20 shadow-xs hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500 group cursor-pointer ${className}`}
+      className={`flex flex-col bg-white p-3 md:p-5 rounded-[1.5rem] md:rounded-[2.5rem] border border-border/30 hover:border-secondary/20 shadow-xs hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500 group cursor-pointer ${className}`}
       {...props}
     >
       {/* Image Container with subtle background */}
-      <div className={`relative w-full aspect-square bg-background flex items-center justify-center mb-5 transition-colors duration-500 group-hover:bg-surfaceAlt rounded-[2rem] overflow-hidden ${imageContianerClass}`}>
+      <div className={`relative w-full aspect-square bg-background flex items-center justify-center mb-3 md:mb-5 transition-colors duration-500 group-hover:bg-surfaceAlt rounded-[1.25rem] md:rounded-[2rem] overflow-hidden ${imageContianerClass}`}>
         {/* Badges Overlay */}
         {badges && badges.length > 0 && (
           <div className="absolute top-4 left-4 z-10 flex flex-col gap-1.5 items-start">
@@ -46,7 +46,7 @@ const ProductCard = ({
         {/* Category & Rating */}
         <div className="flex items-center justify-between mb-2">
           {category && (
-            <span className="text-[11px] font-semibold text-textMuted uppercase tracking-wider">
+            <span className="text-[9px] md:text-[11px] font-semibold text-textMuted uppercase tracking-wider">
               {category}
             </span>
           )}
@@ -58,13 +58,13 @@ const ProductCard = ({
           )}
         </div>
 
-        <h3 className="text-base font-semibold text-text group-hover:text-primary transition-colors duration-300 leading-tight mb-2">
+        <h3 className="text-sm md:text-base font-semibold text-text group-hover:text-primary transition-colors duration-300 leading-tight mb-2">
           {title}
         </h3>
 
         {/* Price & Action */}
         <div className="flex items-center justify-between mt-auto pt-1">
-          <p className="text-sm font-bold text-text">
+          <p className="text-xs md:text-sm font-bold text-text">
             {price || "Custom Quote"}
           </p>
         </div>
