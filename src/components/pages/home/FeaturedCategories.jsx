@@ -3,7 +3,9 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryCard from "@/components/common/CategoryCard";
+import MobileCategoryCard from "@/components/common/MobileCategoryCard";
 import { useFeaturedCategoriesSpread, useReveal } from "@/animations";
+import { useDevice } from "@/hooks/useDevice";
 import "./home.css";
 
 const categoriesData = [
@@ -52,6 +54,7 @@ const categoriesData = [
 const FeaturedCategories = () => {
   const sectionRef = useRef(null);
   const revealRef = useRef(null);
+  const { isMobile } = useDevice();
 
   useFeaturedCategoriesSpread(sectionRef);
   useReveal(revealRef)
@@ -66,18 +69,32 @@ const FeaturedCategories = () => {
           description="Delve into our curated selections of handcrafted baked goods, custom designed for every celebration."
         />
 
-        <div className="bento-wrapper">
-          {categoriesData.map((category) => (
-            <CategoryCard
-              id={category.cssId}
-              key={category.id}
-              title={category.title}
-              description={category.description}
-              productCount={category.productCount}
-              imageSrc={category.imageSrc}
-            />
-          ))}
-        </div>
+        {isMobile ? (
+          <div className="grid grid-cols-2 gap-x-4 gap-y-10 mt-12 px-2">
+            {categoriesData.slice(0, 4).map((category) => (
+              <MobileCategoryCard
+                key={category.id}
+                title={category.title}
+                description={category.description}
+                productCount={category.productCount}
+                imageSrc={category.imageSrc}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="bento-wrapper">
+            {categoriesData.map((category) => (
+              <CategoryCard
+                id={category.cssId}
+                key={category.id}
+                title={category.title}
+                description={category.description}
+                productCount={category.productCount}
+                imageSrc={category.imageSrc}
+              />
+            ))}
+          </div>
+        )}
       </Container>
     </Section>
   );

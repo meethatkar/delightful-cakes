@@ -4,6 +4,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import { RiCake2Fill, RiHeart2Fill, RiSparkling2Fill, RiTruckFill } from '@remixicon/react'
 import { useReveal, useStagger } from '@/animations'
 import { useRef } from 'react'
+import { useDevice } from '@/hooks/useDevice'
 
 const features = [
   {
@@ -35,8 +36,9 @@ const features = [
 const Whyus = () => {
   const headerRef = useRef(null);
   const staggerRef = useRef(null);
+  const { isMobile } = useDevice();
   useReveal(headerRef);
-  useStagger(staggerRef, { staggerFrom: "center" })
+  useStagger(staggerRef, { staggerFrom: isMobile ? "start" : "center" })
 
   return (
     <Section className="bg-surfaceAlt/10">
