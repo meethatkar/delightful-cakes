@@ -1,4 +1,4 @@
-import { gsap, useGSAP } from '../config/gsap';
+import { gsap, ScrollTrigger, useGSAP } from '../config/gsap';
 
 const useStagger = (
   continerRef,
@@ -29,36 +29,59 @@ const useStagger = (
 
     if (!elements.length) return;
 
-    const animConfig = {
-      y,
-      x,
-      opacity,
-      duration,
-      stagger: {
-        each,
-        from: staggerFrom,
-      },
-      delay,
-      ease,
-    };
-
     if (useScrollTrigger) {
-      animConfig.scrollTrigger = {
+      // Set initial state immediately to avoid flashing
+      gsap.set(elements, { y, x, opacity });
+      let initialized = false;
+
+      ScrollTrigger.create({
         trigger: continerRef.current,
         start,
-        end,
-        scrub,
-        once: !scrub && once,
-        onLeave: (self) => {
-          if (scrub && once) {
-            self.animation?.progress(1);
-            self.kill(false);
-          }
-        }
-      };
-    }
+        onEnter: () => {
+          if (initialized) return;
+          initialized = true;
 
-    gsap.from(elements, animConfig);
+          gsap.to(elements, {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration,
+            stagger: {
+              each,
+              from: staggerFrom,
+            },
+            delay,
+            ease,
+            scrollTrigger: scrub ? {
+              trigger: continerRef.current,
+              start,
+              end,
+              scrub,
+              once: !scrub && once,
+              onLeave: (self) => {
+                if (scrub && once) {
+                  self.animation?.progress(1);
+                  self.kill(false);
+                }
+              }
+            } : undefined
+          });
+        }
+      });
+    } else {
+      gsap.from(elements, {
+        y,
+        x,
+        opacity,
+        duration,
+        stagger: {
+          each,
+          from: staggerFrom,
+        },
+        delay,
+        ease,
+      });
+    }
   }, { scope: continerRef, dependencies: [selector, y, x, opacity, duration, each, staggerFrom, delay, ease, start, end, once, scrub, useScrollTrigger, ...dependencies] });
 }
 

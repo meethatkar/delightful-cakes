@@ -22,12 +22,17 @@ const CategoryCard = ({
     >
       {/* Circle Image Container */}
       <div className="absolute top-0 right-2 w-[75%] aspect-square rounded-full border border-primary/20 p-1 bg-white shadow-xs group-hover:border-primary transition-colors duration-500 overflow-hidden flex items-center justify-center">
-        <img
-          src={imageSrc}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
-        />
+        <picture className="w-full h-full">
+          <source srcSet={imageSrc} type="image/avif" />
+          <img
+            src={imageSrc}
+            alt={title}
+            width="200"
+            height="200"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       {/* Product Count Badge (e.g. 12+ / 24+ items) */}

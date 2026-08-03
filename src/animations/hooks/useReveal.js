@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import { gsap } from '../config/gsap';
+import { gsap, ScrollTrigger } from '../config/gsap';
 
 const useReveal = (
   ref, {
@@ -18,30 +18,37 @@ const useReveal = (
 
     const ctx = gsap.context(() => {
       gsap.set(ref.current, { y, opacity });
+      let initialized = false;
 
-      gsap.to(
-        ref.current,
-        {
-          y: 0,
-          opacity: 1,
-          duration,
-          ease,
-          delay,
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 85%",
-            end: scrollEnd,
-            scrub,
-            once: !scrub && once,
-            onLeave: (self) => {
-              if (scrub && once) {
-                self.animation?.progress(1);
-                self.kill(false);
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: "top 85%",
+        onEnter: () => {
+          if (initialized) return;
+          initialized = true;
+
+          gsap.to(ref.current, {
+            y: 0,
+            opacity: 1,
+            duration,
+            ease,
+            delay,
+            scrollTrigger: scrub ? {
+              trigger: ref.current,
+              start: "top 85%",
+              end: scrollEnd,
+              scrub,
+              once: !scrub && once,
+              onLeave: (self) => {
+                if (scrub && once) {
+                  self.animation?.progress(1);
+                  self.kill(false);
+                }
               }
-            }
-          }
+            } : undefined
+          });
         }
-      )
+      });
     }, ref);
 
     return () => ctx.revert();

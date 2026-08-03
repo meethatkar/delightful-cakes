@@ -15,12 +15,17 @@ const MobileCategoryCard = ({
     >
       {/* Circle Image Container */}
       <div className="relative w-32 h-32 rounded-full border border-primary/10 p-1 bg-white shadow-sm mb-8">
-        <img
-          src={imageSrc}
-          alt={title}
-          className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+        <picture className="w-full h-full block">
+          <source srcSet={imageSrc} type="image" />
+          <img
+            src={imageSrc}
+            alt={title}
+            width="128"
+            height="128"
+            className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </picture>
         {/* Product Count Badge */}
         <Badge size="sm" className="absolute top-15 -right-2 px-2">
           {productCount}

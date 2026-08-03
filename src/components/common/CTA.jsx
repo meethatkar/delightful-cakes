@@ -13,7 +13,10 @@ const CTA = () => {
     <Section>
       <Container className="px-4">
         <div ref={revealRef} className="relative w-full md:w-9/12 max-w-5xl mx-auto rounded-xl overflow-hidden">
-          <img src={breadImg} alt="Crafted To Perfection, CTA IMAGE" className="w-full h-[50vh] object-cover" />
+          <picture className="w-full h-[50vh] block">
+            <source srcSet={breadImg} type="image/avif" />
+            <img src={breadImg} width="1024" height="500" alt="Crafted To Perfection, CTA IMAGE" className="w-full h-full object-cover" />
+          </picture>
           <div className="text-div absolute inset-0 flex flex-col gap-3 items-center justify-center text-center bg-black/40 p-4">
             <span className="text-5xl md:text-8xl font-extrabold font-cta tracking-wider text-transparent [-webkit-text-stroke:0.1px_white]">
               Crafted To Perfection

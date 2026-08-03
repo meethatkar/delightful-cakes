@@ -21,11 +21,17 @@ const HeroCard = ({ item, position, onClick }) => {
       // CSS only handles border-color transitions now
       className={`absolute top-1/2 left-1/2 w-[160px] sm:w-[280px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[6px] bg-white transition-colors duration-300 ${borderClass} ${pointerClass}`}
     >
-      <img
-        src={item.imgSrc}
-        alt={item.title}
-        className="w-full h-full object-cover select-none pointer-events-none"
-      />
+      <picture>
+        <source srcSet={`${item.imgSrc}&fm=avif`} type="image/avif" />
+        <source srcSet={`${item.imgSrc}&fm=webp`} type="image/webp" />
+        <img
+          src={item.imgSrc}
+          alt={item.title}
+          width="420"
+          height="525"
+          className="w-full h-full object-cover select-none pointer-events-none"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
     </div>
   )
