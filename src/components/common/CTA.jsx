@@ -7,7 +7,7 @@ import { useReveal } from "@/animations"
 
 const CTA = () => {
   const revealRef = useRef(null);
-  useReveal(revealRef);
+  useReveal(revealRef, { scrollEnd: "bottom 100%" });
 
   return (
     <Section >

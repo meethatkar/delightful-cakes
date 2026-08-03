@@ -8,6 +8,7 @@ const useReveal = (
     duration = 0.8,
     ease = "power3.out",
     delay = 0,
+    scrollEnd = "bottom 70%",
     scrub = true,
     once = true,
   } = {}
@@ -29,6 +30,7 @@ const useReveal = (
           scrollTrigger: {
             trigger: ref.current,
             start: "top 85%",
+            end: scrollEnd,
             scrub,
             once: !scrub && once,
             onLeave: (self) => {
