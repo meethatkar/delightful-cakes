@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Badge from "../ui/Badge";
 
 const MobileCategoryCard = ({
@@ -8,8 +9,11 @@ const MobileCategoryCard = ({
   className = "",
   ...props
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
+      onClick={() => navigate(`/shop?category=${encodeURIComponent(title)}`)}
       className={`w-full flex flex-col items-center text-center group cursor-pointer ${className}`}
       {...props}
     >

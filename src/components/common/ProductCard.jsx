@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { RiStarFill } from "@remixicon/react";
 import Badge from "../ui/Badge";
 
 const ProductCard = ({
+  id,
   image,
   title,
   price,
@@ -14,9 +16,12 @@ const ProductCard = ({
   imageContianerClass = "",
   ...props
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       data-stagger
+      onClick={() => navigate(`/product/${id || 1}`)}
       className={`flex flex-col bg-white p-3 md:p-5 rounded-[1.5rem] md:rounded-[2.5rem] border border-border/30 hover:border-secondary/20 shadow-xs hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500 group cursor-pointer ${className}`}
       {...props}
     >

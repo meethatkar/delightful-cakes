@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Badge from "../ui/Badge";
 import "../pages/home/home.css"
 
@@ -12,11 +13,14 @@ const CategoryCard = ({
   arrowClassName = "bottom-[25%] left-[12%]",
   ...props
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       id={id}
       data-spread-item
       data-position={id}
+      onClick={() => navigate(`/shop?category=${encodeURIComponent(title)}`)}
       className={`relative w-full max-w-[280px] aspect-4/5 mx-auto flex flex-col justify-end p-4 group cursor-pointer ${className}`}
       {...props}
     >
